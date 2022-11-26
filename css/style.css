@@ -12,6 +12,8 @@
   --icons-bg: rgba(255, 255, 255, 0.1);
   --border: #ececec;
   --color-icon: #afb1b8;
+  --form-comment:  rgba(117, 117, 117, 0.5);
+  --form-input: rgba(33, 33, 33, 0.2);
   --portfolio-link-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   --portfolio-btn-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -222,10 +224,10 @@ p {
   line-height: 1.88;
   text-align: center;
   letter-spacing: 0.06em;
+  padding: 10px 32px;
   color: var(--color-white);
   background-color: var(--current-active);
   cursor: pointer;
-  padding: 10px 32px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: 0;
@@ -476,8 +478,9 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 528px;
-  height: 581px;
+  min-width: 528px;
+  min-height: 581px;
+  padding: 40px 39px 40px 41px;
   background-color: var(--color-white);
   box-shadow: var(--modal-shadow);
   border-radius: 4px;
@@ -499,7 +502,112 @@ p {
   background-color: var(--color-white);
   border: 1px solid var(--modal-btn);
   cursor: pointer;
+  transition: color 250ms var(--cubic-bezier);
 }
+
+.modal-icon {
+  fill: currentColor;
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  color: var(--current-active);
+}
+
+.modal-text {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--primary-grey-dark);
+  margin-bottom: 12px;
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left:15px;
+}
+
+.form-field-text,
+.form-field-comment::placeholder {
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.01em;
+}
+
+.form-field-text {
+  color: var(--secondary-grey);
+}
+
+.form-field-input {
+  padding: 12px 42px;
+}
+
+.form-field-comment {
+  resize: none;
+} 
+
+.form-field-input,
+.form-field-comment {
+  border: 1px solid var(--form-input);
+  border-radius: 4px;
+}
+
+.form-field-comment::placeholder {
+  padding: 12px 16px;
+  color: var(--form-comment) ;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.form-checkbox-text {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-grey);
+  margin-left: 10px;
+}
+
+.form .form-send-btn {
+  display: flex;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  text-align: center;
+  padding: 10px 52px;
+  margin: 0 auto;
+  background: var(--current-btn);
+  box-shadow: 0px 4px 4px var(--footer-btn);
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 250ms var(--cubic-bezier),
+  box-shadow 250ms var(--cubic-bezier);
+}
+
+.form-send-btn:hover,
+.form-send-btn:focus {
+  background-color: var(--current-active);
+  box-shadow: 0px 4px 4px var(--footer-btn);
+}
+
+
 
 /* --------------FOOTER-------------- */
 .footer {
@@ -729,7 +837,6 @@ p {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
-  text-align: center;
   letter-spacing: 0.06em;
   color: var(--color-white);
   background-color: var(--current-active);
