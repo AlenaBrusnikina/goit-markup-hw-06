@@ -12,7 +12,7 @@
   --icons-bg: rgba(255, 255, 255, 0.1);
   --border: #ececec;
   --color-icon: #afb1b8;
-  --form-comment:  rgba(117, 117, 117, 0.5);
+  --form-comment: rgba(117, 117, 117, 0.5);
   --form-input: rgba(33, 33, 33, 0.2);
   --portfolio-link-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -480,7 +480,6 @@ p {
   left: 50%;
   min-width: 528px;
   min-height: 581px;
-  padding: 40px 39px 40px 41px;
   background-color: var(--color-white);
   box-shadow: var(--modal-shadow);
   border-radius: 4px;
@@ -514,6 +513,10 @@ p {
   color: var(--current-active);
 }
 
+.modal-form {
+  padding: 40px;
+}
+
 .modal-text {
   font-weight: 700;
   font-size: 20px;
@@ -531,12 +534,6 @@ p {
   margin-bottom: 10px;
 }
 
-.form-icon {
-  position: absolute;
-  top: 50%;
-  left:15px;
-}
-
 .form-field-text,
 .form-field-comment::placeholder {
   font-size: 12px;
@@ -546,42 +543,117 @@ p {
 
 .form-field-text {
   color: var(--secondary-grey);
+  margin-bottom: 4px;
 }
 
 .form-field-input {
-  padding: 12px 42px;
+  padding: 10px 42px;
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  fill: var(--logo-color-black);
+  transition: fill 250ms var(--cubic-bezier);
 }
 
 .form-field-comment {
+  height: 120px;
   resize: none;
-} 
+  padding: 12px 16px;
+}
 
 .form-field-input,
 .form-field-comment {
   border: 1px solid var(--form-input);
   border-radius: 4px;
+  transition: border 250ms var(--cubic-bezier), outline 250ms var(--cubic-bezier);
+}
+
+.form-field-input:focus,
+.form-field-comment:focus {
+  border: 1px solid var(--current-active);
+  outline: var(--current-active);
+}
+
+.form-field-input:focus + .form-icon {
+  fill: var(--current-active);
 }
 
 .form-field-comment::placeholder {
-  padding: 12px 16px;
-  color: var(--form-comment) ;
+  color: var(--form-comment);
 }
 
+/* form-checkbox */
 .form-checkbox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 30px;
 }
 
-.form-checkbox-text {
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-field-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.checkbox-field-input:checked + .checkbox-field-icon {
+  border-color: transparent;
+  background-color: var(--current-active);
+}
+
+.checkbox-field-icon {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--primary-grey-dark);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 250ms var(--cubic-bezier);
+}
+
+.checkbox-field-input:focus + .checkbox-field-icon {
+  background-color: var(--current-active);
+  border: transparent;
+}
+
+.checkbox-field-text,
+.checkbox-field-link {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
-  color: var(--secondary-grey);
-  margin-left: 10px;
 }
 
+.checkbox-field-text {
+  color: var(--secondary-grey);
+  margin-left: 10px;
+  margin-right: 4px;
+}
+
+.checkbox-field-link {
+  position: relative;
+  text-decoration: none;
+  color: var(--current-active);
+}
+
+.checkbox-field-link::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--current-active);
+}
+
+/* form-send-btn */
 .form .form-send-btn {
   display: flex;
   font-weight: 700;
@@ -597,8 +669,7 @@ p {
   border-radius: 4px;
   border: 0;
   cursor: pointer;
-  transition: background-color 250ms var(--cubic-bezier),
-  box-shadow 250ms var(--cubic-bezier);
+  transition: background-color 250ms var(--cubic-bezier), box-shadow 250ms var(--cubic-bezier);
 }
 
 .form-send-btn:hover,
@@ -606,8 +677,6 @@ p {
   background-color: var(--current-active);
   box-shadow: 0px 4px 4px var(--footer-btn);
 }
-
-
 
 /* --------------FOOTER-------------- */
 .footer {
@@ -794,7 +863,6 @@ p {
 
 /* -------------- form----------- */
 
-
 .footer-link-text {
   margin-bottom: 20px;
 }
@@ -812,8 +880,12 @@ p {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
   background-color: transparent;
-  transition: border 250ms var(--cubic-bezier),
-  outline 250ms var(--cubic-bezier);
+  transition: border 250ms var(--cubic-bezier), outline 250ms var(--cubic-bezier);
+}
+
+.footer-form-email:focus {
+  border: 1px solid var(--current-active);
+  outline: var(--current-active);
 }
 
 .footer-form-email:placeholder {
@@ -821,11 +893,6 @@ p {
   line-height: 1.25;
   letter-spacing: 0.03em;
   color: var(--footer-item-link);
-}
-
-.footer-form-email:focus {
-  border: 1px solid var(--current-active);
-  outline: var(--current-active);
 }
 
 .footer-form-btn {
