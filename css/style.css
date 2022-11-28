@@ -603,12 +603,12 @@ p {
   position: absolute;
 }
 
-.checkbox-field-input:checked+.checkbox-field-icon {
+.checkbox-field-input:checked + .checkbox-field-icon {
   border-color: var(--current-active);
   background-color: var(--current-active);
 }
 
-.checkbox-field-input:focus:not(:checked)+.checkbox-field-icon {
+.checkbox-field-input:focus:not(:checked) + .checkbox-field-icon {
   border-color: var(--current-active);
 }
 
@@ -686,7 +686,7 @@ p {
 .footer-wrap {
   display: flex;
   align-items: baseline;
-  gap: 95px;
+  gap: 93px;
 }
 
 .footer-logo {
@@ -868,6 +868,7 @@ p {
 
 .footer-form {
   display: flex;
+  margin-left: auto;
 }
 
 .footer-form-email {
